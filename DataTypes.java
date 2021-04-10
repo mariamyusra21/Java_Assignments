@@ -25,7 +25,20 @@ public class DataTypes {
 
         // String Example...
         System.out.println("Enter your Favourite Slogan...");
-        String Slogan = numInput.next();
+        String Slogan = numInput.nextLine();
         System.out.println(Slogan);
+
+        // Double Example...
+        System.out.println("Enter the Requirements for Arithmetic Mean of Double Numbers...");
+        System.out.println("Enter the first number...");
+        double first = numInput.nextDouble();
+        System.out.println("Enter the second number...");
+        double second = numInput.nextDouble();
+        double answer = (first + second)/2.0;
+        System.out.print("The Arithmetic Mean of these two numbers are: ");
+        System.out.println(answer);
+
+
+
     }
 }
