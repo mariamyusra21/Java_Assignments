@@ -20,7 +20,7 @@ public class QuadraticEq {
             System.out.println("The roots are " + ans1 + " and " + ans2);
         }
         else if (answer == 0.0) {
-            double ans1 = -b / (2.0 * a_variable);
+            double ans1 = -b_variable / (2.0 * a_variable);
             System.out.println("The root is " + ans1);
         }
         else {
