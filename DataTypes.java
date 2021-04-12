@@ -6,27 +6,27 @@ public class DataTypes {
         // Integer Example...
         System.out.println("Enter the Requirements of Addition of Integers...");
         System.out.println("Enter the first number...");
-        int FirstNumber = numInput.nextInt();
+        int firstNumber = numInput.nextInt();
         System.out.println("Enter the second number...");
-        int SecondNumber = numInput.nextInt();
-        int Sum = FirstNumber + SecondNumber;
+        int secondNumber = numInput.nextInt();
+        int sum = firstNumber + secondNumber;
         System.out.print("The Sum of these two numbers are: ");
-        System.out.println(Sum);
+        System.out.println(sum);
         
         // Float Example...
         System.out.println("Enter the Requirements of Multiplication of Float Numbers...");
         System.out.println("Enter the first number...");
-        float Number1 = numInput.nextFloat();
+        float number1 = numInput.nextFloat();
         System.out.println("Enter the second number...");
-        float Number2 = numInput.nextFloat();
-        float Result = Number1 * Number2;
+        float number2 = numInput.nextFloat();
+        float result = number1 * number2;
         System.out.print("The Multiplication of these two numbers are: ");
-        System.out.println(Result);
+        System.out.println(result);
 
         // String Example...
         System.out.println("Enter your Favourite Slogan...");
-        String Slogan = numInput.nextLine();
-        System.out.println(Slogan);
+        String slogan = numInput.nextLine();
+        System.out.println(slogan);
 
         // Double Example...
         System.out.println("Enter the Requirements for Arithmetic Mean of Double Numbers...");
@@ -38,7 +38,11 @@ public class DataTypes {
         System.out.print("The Arithmetic Mean of these two numbers are: ");
         System.out.println(answer);
 
-
-
+        //Boolean Example...
+        System.out.println("Photons have capability to lose energy. [True/False]");
+        boolean ans = numInput.nextBoolean();
+        System.out.print(ans);
+ 
+        numInput.close();
     }
 }
