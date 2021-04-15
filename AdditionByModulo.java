@@ -1,24 +1,25 @@
 import java.util.Scanner;
 public class AdditionByModulo{
     public static void main(String[] args) {
-        Scannner numInput = new Scanner(System.in);
+        Scanner numInput = new Scanner(System.in);
         System.out.print("Enter your Numbers in the range of 1000: ");
         int number = numInput.nextInt();
         System.out.println(getSumOfDigit(number));
 
+        numInput.close();
     }
 }
 
 class Modulus_Addition{
     
-    void getSumOfDigit(int number){
+    int getSumOfDigit(int n){
         int sum = 0;
         int i;
-        while (number > 0)
+       while (n > 0)
         {
-            i = number % 10;
+            i = n % 10;
             sum = sum + i;
-            number = number / 10;
+            n = n / 10;
         }
         return sum;
     }
