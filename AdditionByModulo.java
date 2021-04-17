@@ -4,7 +4,7 @@ public class AdditionByModulo{
         Scanner numInput = new Scanner(System.in);
         System.out.print("Enter your Numbers in the range of 1000: ");
         int number = numInput.nextInt();
-        System.out.println(getSumOfDigit(number));
+        System.out.println(Modulus_Addition.getSumOfDigit(number));
 
         numInput.close();
     }
