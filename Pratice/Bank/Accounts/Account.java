@@ -1,6 +1,6 @@
 package Accounts;
 
-public class Account {
+public class Account extends Amount{
     public String fullName;
     public String userName;
     private String password;
@@ -13,13 +13,20 @@ public class Account {
         this.amount = amount;
     }
 
+    @Override
+    public void showData(int amount){
+        System.out.println(" Your Amount is: " + amount + " and this is Overloaded method...");
+    }
+
     private void showAmount(){
         System.out.println(this.amount);
     }
 
     public void login(String password){
         if (password.equals(this.password)){
-            this.showAmount();
+            // this.showAmount();
+            this.showData(amount);
+            this.showData(amount, fullName);                // Inheriting the method of Amount class in Account class (without making object)...
         }
         else{
             System.out.println("Access Denied!!!");

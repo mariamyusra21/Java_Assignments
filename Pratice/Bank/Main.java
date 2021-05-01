@@ -17,8 +17,8 @@ public class Main{
         acc2.login("imagination");
         System.out.println("-------------------------------------------");
 
-        Amount amount1 = new Amount();
-        amount1.showData();
+        // Amount amount1 = new Amount();
+        // amount1.showData();
 
     }
 }
