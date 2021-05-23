@@ -11,9 +11,35 @@ interface MyMenu{
 }
 
 class MyBank implements MyMenu{
-    private Accounts[] users = new Accounts[10];
+    private Accounts[] users;
     private int regUsers = 0;
     Scanner input = new Scanner(System.in);
+    IOBank obj;
+
+    public  MyBank(){
+        this.obj = new IOBank("myRecord.csv");
+
+        this.users = new Accounts[this.obj.recordCount];
+        updateUsers();
+    }
+
+    private void updateUsers() {
+        this.regUsers = this.obj.recordCount;
+        String[] userNames = this.obj.getUserNames();
+        String[] passwords = this.obj.getPasswords();
+        float[] amounts = this.obj.getAmounts();
+
+        if (this.users != null){
+            Accounts[] temp = new Accounts[this.users.length+1];
+            System.arraycopy(this.users,0,temp,0,this.users.length);
+            this.users = temp;
+        }
+
+        for (int i = 0; i < this.obj.recordCount; i++) {
+//            assert users != null;
+            users[i] = new Accounts(userNames[i],passwords[i],amounts[i]);
+        }
+    }
 
     public void createAccount() {
         System.out.print("Enter Username: ");
@@ -21,11 +47,13 @@ class MyBank implements MyMenu{
         System.out.print("Enter Password: ");
         String password = input.nextLine();
         System.out.print("Enter Amount: ");
-        double amount = input.nextDouble();
+        float amount = input.nextFloat();
         input.nextLine();
 
-        Accounts temp = new Accounts(userName,password,amount);
-        users[regUsers++] = temp;
+        this.obj.addAcount(userName,password,amount);
+        this.updateUsers();
+//        Accounts temp = new Accounts(userName,password,amount);
+//        users[regUsers++] = temp;
         System.out.println("User Registered.");
     }
 
