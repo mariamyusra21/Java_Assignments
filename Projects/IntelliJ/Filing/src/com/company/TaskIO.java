@@ -2,6 +2,7 @@ package com.company;
 
 import java.io.*;
 import java.util.Scanner;
+import java.util.InputMismatchException;
 
 class Series{
     File file;
@@ -19,16 +20,20 @@ class Series{
         }
     }
 
-    public void generateSeries(int base,int power, int upto){
+    private int PowerOfSeries(int base,int power){
+        return base;
+    }
+
+    public void generateSeries(int base,int power, int upToTimes){
         try {
-            FileWriter fappend = new FileWriter(this.file,true);
-            BufferedWriter bwriter = new BufferedWriter(fappend);
-            PrintWriter pwriter = new PrintWriter(bwriter);
+            FileWriter fw = new FileWriter(this.file,true);
+            BufferedWriter bw = new BufferedWriter(fw);
+            PrintWriter pw = new PrintWriter(bw);
 
-            pwriter.println(base);
+            pw.println(base + "," + power + "," + upToTimes);
 
-            pwriter.flush();
-            pwriter.close();
+            pw.flush();
+            pw.close();
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -38,9 +43,18 @@ class Series{
     public void readSeries(){
         try {
             Scanner scan = new Scanner(this.file);
-            scan.useDelimiter("[,\n]");
+            scan.useDelimiter("[, \n]");
 
-        } catch (FileNotFoundException e) {
+            while(scan.hasNext()){
+                String base = scan.next();
+                String power = scan.next();
+                String upToTimes = scan.next();
+
+                System.out.println(base + " " + power + " " + upToTimes);
+            }
+            scan.close();
+
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -53,5 +67,6 @@ public class TaskIO {
     s.generateSeries(2, 3, 2);
     s.generateSeries(3, 1, 4);
     s.generateSeries(4, 2, 5);
+    s.readSeries();
     }
 }
